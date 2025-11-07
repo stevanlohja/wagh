@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/wagh/static/css/main.e6c13ad2.css",
+    "main.js": "/wagh/static/js/main.feb728c0.js",
+    "static/js/453.cbacfd34.chunk.js": "/wagh/static/js/453.cbacfd34.chunk.js",
+    "index.html": "/wagh/index.html",
+    "main.e6c13ad2.css.map": "/wagh/static/css/main.e6c13ad2.css.map",
+    "main.feb728c0.js.map": "/wagh/static/js/main.feb728c0.js.map",
+    "453.cbacfd34.chunk.js.map": "/wagh/static/js/453.cbacfd34.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.feb728c0.js"
+  ]
+}
