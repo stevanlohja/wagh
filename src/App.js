@@ -368,7 +368,7 @@ function App() {
             Or just copy da Pool ID (Click da box):
           </Typography>
           <TextField
-            value="[YOUR_POOL_ID_HERE_pool1xyz...]"
+            value="523b93372180413812e73eef7feb5bea9e4386141c06df9fae10e281"
             onClick={handleCopy}
             InputProps={{
               readOnly: true,
