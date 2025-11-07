@@ -17,8 +17,7 @@ import {
 } from '@mui/material';
 
 // --- DA CUSTOM WAAAGH! THEME ---
-// Dis is where we tell MUI how to be more ORKY!
-
+// ... (All da theme stuff is da same) ...
 const waaaghTheme = createTheme({
   palette: {
     mode: 'dark', // We'z dark!
@@ -105,8 +104,8 @@ const waaaghTheme = createTheme({
   },
 });
 
+
 // --- DA FLICKER GUBBINZ ---
-// We need this for da headin' and button
 const flickerAnimation = (
   <GlobalStyles
     styles={{
@@ -121,9 +120,9 @@ const flickerAnimation = (
   />
 );
 
-// === CREATE DA AUDIO GUBBINZ (outside da component) ===
-// Make sure you have 'waaagh.mp3' in your /public folder!
-const waaaghAudio = new Audio('/waaagh.mp3');
+// === 1. FIX DA AUDIO PATH ===
+// We use da PUBLIC_URL gubbin so it finds da file on GitHub Pages
+const waaaghAudio = new Audio(`${process.env.PUBLIC_URL}/waaagh.mp3`);
 // ========================================================
 
 
@@ -140,15 +139,14 @@ function App() {
     try {
       waaaghAudio.play();
     } catch (err) {
-      console.error("Audio error!", err); // In case da browser blocks it
+      console.error("Audio error!", err); 
     }
-    // ==========================
   };
 
   return (
     <ThemeProvider theme={waaaghTheme}>
-      <CssBaseline /> {/* Applies our custom background */}
-      {flickerAnimation} {/* Adds da flicker keyframes */}
+      <CssBaseline /> 
+      {flickerAnimation} 
 
       {/* --- HEADER & HERO --- */}
       <Box
@@ -156,10 +154,12 @@ function App() {
         sx={{
           textAlign: 'center',
           padding: '5rem 0',
-          // Images in the /public folder are served from the root
-          backgroundImage: `linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('/Gemini_Generated_Image_lz5su2lz5su2lz5s.png')`,
+          // === 2. FIX DA IMAGE PATH ===
+          // Added ${process.env.PUBLIC_URL} here too
+          backgroundImage: `linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('${process.env.PUBLIC_URL}/Gemini_Generated_Image_lz5su2lz5su2lz5s.png')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center center',
+          // ============================
           borderBottom: '2px solid',
           borderColor: 'primary.main',
         }}
@@ -325,7 +325,7 @@ function App() {
             <Paper sx={{ padding: '2rem', borderTop: '4px solid', borderTopColor: 'secondary.main' }}>
               <Typography variant="h3" gutterBottom>FOR DA WAAAGH!</Typography>
               <Typography variant="body1">
-                We're not just here for da teef. We're buildin' a community (a 'Warband'!). A portion of pool operator rewards goes to [YOUR_MISSION/CHARITY].
+                We're not just here for da teef. We're buildin' a community (a 'Warband'!).
               </Typography>
             </Paper>
           </Grid>
@@ -395,17 +395,14 @@ function App() {
       {/* --- FOOTER --- */}
       <Box component="footer" sx={{ textAlign: 'center', padding: '3rem 1rem', background: '#000', borderTop: '1px solid', borderColor: 'divider', color: '#777' }}>
         <Container>
-          {/* === UPDATED SOCIAL LINKS === */}
           <Box className="social-links">
             <Link href="https://x.com/stevanlohja" target="_blank" sx={{ fontFamily: "'Black Ops One', sans-serif", fontSize: '1.2rem', margin: '0 1rem', color: 'text.primary' }}>
               X (TWITTER)
             </Link>
           </Box>
-          {/* ============================ */}
           <Typography variant="body2" sx={{ marginTop: '2rem', color: '#777' }}>
             WAAAGH! POOL [$WAGH] - Built by a Mek, for da Boyz.
             <br />
-            &copy; {new Date().getFullYear()} All rights reserved... or we'll smash ya.
           </Typography>
         </Container>
       </Box>
